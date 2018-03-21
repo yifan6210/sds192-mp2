@@ -2,8 +2,7 @@
 title: "Mini-Project 2"
 author: "Yifan Ma & Meghan Suslovic"
 date: "March 7, 2018"
-output: html_document:
-  code_folding: hide
+output: html_document
 ---
 
 
@@ -53,9 +52,9 @@ state <- house_elections %>%
   group_by(state.x) %>%
   filter(!is.na(transaction_amt)) %>%
   summarise(S2 = sum(transaction_amt)) %>%
-  arrange(desc(S2))%>%
   left_join(d, by = c("state.x" = "state"))%>%
-  mutate(mean_d = S2/n)
+  mutate(mean_d = S2/n) %>%
+  arrange(desc(mean_d))
 
 ggplot(state, aes(x = state.x, y = mean_d))+
   geom_bar(stat = "identity")+
@@ -67,19 +66,15 @@ scale_y_discrete(breaks = c(0, 14000, 28000, 42000, 56000, 70000), label = c("0"
 
 
 ```{r}
-state <- house_elections %>%
-  left_join(contributions, by = c("fec_id" = "cand_id")) %>%
-  mutate(amount = ifelse(transaction_amt == 'NA', 10, transaction_amt))%>%
-  filter(amount == 10)
+#state <- house_elections %>%
+ # left_join(contributions, by = c("fec_id" = "cand_id")) %>%
+  #mutate(amount = ifelse(transaction_amt == 'NA', 10, transaction_amt))%>%
+  #filter(amount == 10)
    
-  filter(!is.na(amount))%>%
-  group_by(state.x, ge_winner) %>%
-  summarise(S2 = sum(amount))
+  #filter(!is.na(amount))%>%
+  #group_by(state.x, ge_winner) %>%
+  #summarise(S2 = sum(amount))
 
-
-
-    
-  
-ggplot(state, aes(x  = state, y = S2,  fill = ge_winner))+
-  geom_bar(postion = "dodge")
+#ggplot(state, aes(x  = state, y = S2,  fill = ge_winner))+
+ # geom_bar(postion = "dodge")
 ```
