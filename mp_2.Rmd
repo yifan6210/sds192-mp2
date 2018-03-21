@@ -7,7 +7,7 @@ output: html_document:
 ---
 
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE}m
 knitr::opts_chunk$set(warning=FALSE, message=FALSE, echo=TRUE)
 ```
 
@@ -40,7 +40,6 @@ ggplot(all, aes(x = ge_winner, y = m))+
   ggtitle("Mean Transaction Amount Received by Winning and Losing Campaigns")+
   labs(x = "",  y = "Transaction Amount ($)")
   
-
 ```
 
 ```{r}
