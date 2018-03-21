@@ -1,0 +1,86 @@
+---
+title: "Mini-Project 2"
+author: "Yifan Ma & Meghan Suslovic"
+date: "March 7, 2018"
+output: html_document:
+  code_folding: hide
+---
+
+
+## Loading the data
+
+This project is so interesting and relevant to my life!
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, echo=TRUE)
+```
+
+
+```{r, include=FALSE}
+load("house_elections.rda")
+load("candidates.rda")
+load("committees.rda")
+load("contributions.rda")
+```
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+committees2<- committees%>%
+  select(cmte_id:connected_org_name)
+
+all <- house_elections %>%
+  left_join(contributions, by = c("fec_id" = "cand_id")) %>%
+  group_by(fec_id,ge_winner) %>%
+  summarise(S = sum(transaction_amt))%>%
+  filter(!is.na(S))%>%
+  group_by(ge_winner)%>%
+  summarise(m = mean(S))
+  
+ggplot(all, aes(x = ge_winner, y = m))+
+  geom_bar(stat = "identity")
+  
+  
+  ##select("cmte_id","cmte_name","cmte_state","cmte_dsgn","cmte_party_affiliation","cand_id","name","transaction_amt") 
+
+```
+
+```{r}
+d <- house_elections %>%
+  group_by(state) %>%
+  summarise(n = n_distinct(district))
+
+
+state <- house_elections %>%
+  left_join(contributions, by = c("fec_id" = "cand_id"))%>%
+  group_by(state.x) %>%
+  filter(!is.na(transaction_amt)) %>%
+  summarise(S2 = sum(transaction_amt)) %>%
+  arrange(desc(S2))%>%
+  left_join(d, by = c("state.x" = "state"))%>%
+  mutate(mean_d = S2/n)
+
+ggplot(state, aes(x = state.x, y = mean_d))+
+  geom_bar(stat = "identity")
+```
+
+
+```{r}
+state <- house_elections %>%
+  left_join(contributions, by = c("fec_id" = "cand_id")) %>%
+  mutate(amount = ifelse(transaction_amt == 'NA', 10, transaction_amt))%>%
+  filter(amount == 10)
+   
+  filter(!is.na(amount))%>%
+  group_by(state.x, ge_winner) %>%
+  summarise(S2 = sum(amount))
+
+
+
+    
+  
+ggplot(state, aes(x  = state, y = S2,  fill = ge_winner))+
+  geom_bar(postion = "dodge")
+```
