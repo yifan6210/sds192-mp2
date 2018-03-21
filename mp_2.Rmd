@@ -8,6 +8,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(warning=FALSE, message=FALSE, echo=TRUE)
+install.packages(c("maps", "mapdata","devtools","stringr"))
 ```
 
 
@@ -19,7 +20,11 @@ load("contributions.rda")
 ```
 
 ```{r}
+devtools::install_github("dkahle/ggmap")
 library(tidyverse)
+library(ggmap)
+library(maps)
+library(mapdata)
 ```
 
 ```{r}
