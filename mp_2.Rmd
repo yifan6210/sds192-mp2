@@ -101,7 +101,4 @@ scale_y_discrete(breaks = c(0, 14000, 28000, 42000, 56000, 70000), label = c("0"
   #filter(!is.na(amount))%>%
   #group_by(state.x, ge_winner) %>%
   #summarise(S2 = sum(amount))
-
-#ggplot(state, aes(x  = state, y = S2,  fill = ge_winner))+
- # geom_bar(postion = "dodge")
 ```
