@@ -59,7 +59,8 @@ state <- house_elections %>%
 ggplot(state, aes(x = state.x, y = mean_d))+
   geom_bar(stat = "identity")+
   ggtitle("Mean Transaction Amounts Received by House Election Campaigns by State")+
-  labs(x = "State",  y = "Transaction Amount ($)")
+  labs(x = "State",  y = "Transaction Amount ($)")+
+  scale_y_discrete(breaks = c(0, 14000, 28000, 42000, 56000, 70000), label = c("0", "14,000", "28,000", "42,000", "56,000", "70,000"))
 ```
 
 scale_y_discrete(breaks = c(0, 14000, 28000, 42000, 56000, 70000), label = c("0", "14,000", "28,000", "42,000", "56,000", "70,000"))+
