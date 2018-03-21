@@ -38,8 +38,6 @@ all <- house_elections %>%
 ggplot(all, aes(x = ge_winner, y = m))+
   geom_bar(stat = "identity")
   
-  
-  ##select("cmte_id","cmte_name","cmte_state","cmte_dsgn","cmte_party_affiliation","cand_id","name","transaction_amt") 
 
 ```
 
