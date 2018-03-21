@@ -8,7 +8,6 @@ output: html_document
 
 ```{r setup, include=FALSE}m
 knitr::opts_chunk$set(warning=FALSE, message=FALSE, echo=TRUE)
-install.packages(c("maps", "mapdata","devtools","stringr"))
 ```
 
 
@@ -20,9 +19,7 @@ load("contributions.rda")
 ```
 
 ```{r}
-devtools::install_github("dkahle/ggmap")
 library(tidyverse)
-library(ggmap)
 library(maps)
 library(mapdata)
 ```
@@ -46,6 +43,7 @@ ggplot(all, aes(x = ge_winner, y = m))+
   
 ```
 
+
 ```{r}
 d <- house_elections %>%
   group_by(state) %>%
@@ -68,7 +66,24 @@ ggplot(state, aes(x = state.x, y = mean_d))+
   scale_y_discrete(breaks = c(0, 14000, 28000, 42000, 56000, 70000), label = c("0", "14,000", "28,000", "42,000", "56,000", "70,000"))
 ```
 
+```{r}
+states <- map_data("state")
+ggplot(data = states) + 
+  geom_polygon(aes(x = long, y = lat, fill = region, group = group), color = "white")
+
+```
+
+
+
+
 scale_y_discrete(breaks = c(0, 14000, 28000, 42000, 56000, 70000), label = c("0", "14,000", "28,000", "42,000", "56,000", "70,000"))+
+
+
+
+
+
+
+
 
 
 ```{r}
