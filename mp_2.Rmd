@@ -7,10 +7,6 @@ output: html_document:
 ---
 
 
-## Loading the data
-
-This project is so interesting and relevant to my life!
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(warning=FALSE, message=FALSE, echo=TRUE)
 ```
