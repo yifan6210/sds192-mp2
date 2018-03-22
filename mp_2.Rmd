@@ -94,24 +94,6 @@ base
 
 
 
-scale_y_discrete(breaks = c(0, 14000, 28000, 42000, 56000, 70000), label = c("0", "14,000", "28,000", "42,000", "56,000", "70,000"))+
-
->>>>>>> 64ca9e62c4e7be0f66c473e3e7b07187b70cb496
 
 
 
-
-
-
-
-
-```{r}
-#state <- house_elections %>%
- # left_join(contributions, by = c("fec_id" = "cand_id")) %>%
-  #mutate(amount = ifelse(transaction_amt == 'NA', 10, transaction_amt))%>%
-  #filter(amount == 10)
-   
-  #filter(!is.na(amount))%>%
-  #group_by(state.x, ge_winner) %>%
-  #summarise(S2 = sum(amount))
-```
