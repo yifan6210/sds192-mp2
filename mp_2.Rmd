@@ -2,7 +2,8 @@
 title: "Mini-Project 2"
 author: "Yifan Ma & Meghan Suslovic"
 date: "March 7, 2018"
-output: html_document
+output: html_document:
+  code_folding: hide
 ---
 
 
@@ -10,7 +11,6 @@ output: html_document
 knitr::opts_chunk$set(warning=FALSE, message=FALSE, echo=TRUE)
 ```
 
-I LOVE ice bathing
 
 ```{r, include=FALSE}
 load("house_elections.rda")
@@ -63,9 +63,10 @@ state <- house_elections %>%
 ggplot(state, aes(x = state.x, y = mean_d))+
   geom_bar(stat = "identity")+
   ggtitle("Mean Transaction Amounts Received by House Election Campaigns by State")+
+  scale_y_continuous(labels= scales::dollar)+
   labs(x = "State",  y = "Transaction Amount ($)")+
-  theme(axis.text.x= element_text(angle=45))+
-  scale_y_continuous(labels= scales::dollar)
+  theme(axis.text.x= element_text(angle=45)) 
+  
   
 ```
 
@@ -83,10 +84,6 @@ s_state <- base +
 
 ```
 
-
-
-
-scale_y_discrete(breaks = c(0, 14000, 28000, 42000, 56000, 70000), label = c("0", "14,000", "28,000", "42,000", "56,000", "70,000"))+
 
 >>>>>>> 64ca9e62c4e7be0f66c473e3e7b07187b70cb496
 
