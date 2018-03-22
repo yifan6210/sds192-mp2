@@ -2,7 +2,9 @@
 title: "Mini-Project 2"
 author: "Yifan Ma & Meghan Suslovic"
 date: "March 7, 2018"
-output: html_document
+output: 
+  html_document:
+    code_folding: hide
 ---
 
 
