@@ -32,7 +32,7 @@ library(RColorBrewer)
 ```
 
 ```{r}
-committees2<- committees%>%
+committees2<- committees %>%
   select(cmte_id:connected_org_name)
 
 all <- house_elections %>%
@@ -44,9 +44,9 @@ all <- house_elections %>%
   summarise(m = mean(S))
 
 all <- all %>%
-  mutate(var = case_when( var == "N" ~ "Lost", var == "W" ~ "Won", TRUE ~ var))
+  mutate(nname = case_when( ge_winner == "N" ~ "Lost", ge_winner == "W" ~ "Won"))
 
-ggplot(all, aes(x = ge_winner, y = m))+
+ggplot(all, aes(x = nname, y = m))+
   geom_bar(stat = "identity")+
   ggtitle(label = "Mean Transaction Amount Received by Winning and Losing Campaigns", subtitle = "Source: FEC")+
   labs(x = "",  y = "Transaction Amount ($)")
@@ -82,6 +82,8 @@ ggplot(state, aes(x = state.x, y = mean_d))+
 
 
 ```{r}
+library(readxl)
+state_a <- read_excel("state_a.xls")
 states <- map_data("state")
 states <- states %>%
   left_join(state_a, by = c("region" = "State")) %>%
@@ -93,6 +95,8 @@ base <- ggplot(data = states) +
   scale_fill_gradient(low = "light green", high = "dark green", guide = FALSE)+
   theme_void()+
   coord_fixed(1.3)
+
+base
 
 ```
 
