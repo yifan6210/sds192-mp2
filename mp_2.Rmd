@@ -66,10 +66,9 @@ ggplot(state, aes(x = state.x, y = mean_d))+
   labs(x = "State",  y = "Transaction Amount ($)")+
   theme(axis.text.x= element_text(angle=45))+
   scale_y_continuous(labels= scales::dollar)
+  
 ```
-<<<<<<< HEAD
- 
-=======
+
 
 ```{r}
 states <- map_data("state")
