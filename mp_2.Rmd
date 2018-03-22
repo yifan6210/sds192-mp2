@@ -10,6 +10,7 @@ output: html_document
 knitr::opts_chunk$set(warning=FALSE, message=FALSE, echo=TRUE)
 ```
 
+I LOVE ice bathing
 
 ```{r, include=FALSE}
 load("house_elections.rda")
@@ -20,6 +21,8 @@ load("contributions.rda")
 
 ```{r}
 library(tidyverse)
+library(maps)
+library(mapdata)
 ```
 
 ```{r}
@@ -40,6 +43,7 @@ ggplot(all, aes(x = ge_winner, y = m))+
   labs(x = "",  y = "Transaction Amount ($)")
   
 ```
+
 
 ```{r}
 d <- house_elections %>%
@@ -63,7 +67,36 @@ ggplot(state, aes(x = state.x, y = mean_d))+
   theme(axis.text.x= element_text(angle=45))+
   scale_y_continuous(labels= scales::dollar)
 ```
+<<<<<<< HEAD
  
+=======
+
+```{r}
+states <- map_data("state")
+base <- ggplot(data = states) + 
+  geom_polygon(aes(x = long, y = lat, group = group), color = "black", fill = "gray")+
+  coord_fixed(1.3)+
+  theme_nothing()
+  
+s_state <- base +
+ geom_polygon(data = state)
+
+
+```
+
+
+
+
+scale_y_discrete(breaks = c(0, 14000, 28000, 42000, 56000, 70000), label = c("0", "14,000", "28,000", "42,000", "56,000", "70,000"))+
+
+>>>>>>> 64ca9e62c4e7be0f66c473e3e7b07187b70cb496
+
+
+
+
+
+
+
 
 ```{r}
 #state <- house_elections %>%
@@ -74,7 +107,4 @@ ggplot(state, aes(x = state.x, y = mean_d))+
   #filter(!is.na(amount))%>%
   #group_by(state.x, ge_winner) %>%
   #summarise(S2 = sum(amount))
-
-#ggplot(state, aes(x  = state, y = S2,  fill = ge_winner))+
- # geom_bar(postion = "dodge")
 ```
