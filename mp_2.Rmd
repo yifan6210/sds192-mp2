@@ -6,6 +6,8 @@ output: html_document:
   code_folding: hide
 ---
 
+**Money and Power: Swing States**
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(warning=FALSE, message=FALSE, echo=TRUE)
@@ -39,10 +41,11 @@ all <- house_elections %>%
   
 ggplot(all, aes(x = ge_winner, y = m))+
   geom_bar(stat = "identity")+
-  ggtitle("Mean Transaction Amount Received by Winning and Losing Campaigns")+
+  ggtitle(label = "Mean Transaction Amount Received by Winning and Losing Campaigns", subtitle = "Source: FEC")+
   labs(x = "",  y = "Transaction Amount ($)")
   
 ```
+
 
 
 ```{r}
@@ -62,7 +65,7 @@ state <- house_elections %>%
 
 ggplot(state, aes(x = state.x, y = mean_d))+
   geom_bar(stat = "identity")+
-  ggtitle("Mean Transaction Amounts Received by House Election Campaigns by State")+
+  ggtitle(label = "Mean Transaction Amounts Received by House Election Campaigns by State", subtitle = "Source: FEC")+
   scale_y_continuous(labels= scales::dollar)+
   labs(x = "State",  y = "Transaction Amount ($)")+
   theme(axis.text.x= element_text(angle=45)) 
