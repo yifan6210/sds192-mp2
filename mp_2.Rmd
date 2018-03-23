@@ -99,7 +99,8 @@ Source: Rasmussen Reports
 ```{r}
 base <- ggplot(data = states) + 
   geom_polygon(aes(x = long, y = lat, group = group, fill = mean_d), color = "white")+
-  scale_fill_gradient(low = "light green", high = "dark green", guide = FALSE)+
+  scale_fill_gradient(low = "light green", high = "dark green", name = "Mean transaction amount")+
+  theme(legend.position="right")+
   theme_void()+
   coord_fixed(1.3)
 
