@@ -118,7 +118,8 @@ Source: Rasmussen Reports
 
 From Figure 2, it is clear that New Hampshire (NH), Iowa (IA), and Nevada (NV) were the top three states that received the most house election campaign funding. For a more visual representation of the data, refer to Figure 3. The states with the darkest green shading, correspond to the states with the top funding amounts. There is considerable overlap with Figure 3 and Figure 4, an electoral map from 2012 that depicts the toss-up states in tan. New Hampshire, Iowa, and Nevada were all considered swing states in the 2012 presidential election, so it makes sense that donors were contributing large sums of money to elections in these states (particularly given that Figure 1 shows that winning campaigns received more money). Interestingly, these three states are also generally the first to host their presidential primaries/caucuses, meaning they receive even more attention from candidates and the media as an indicator for how the rest of the country will vote. Illinois is an outlier in this case because it was viewed as a dependly blue state, so it is unclear why so much money went to their house elections in 2012. It will be interesting to see if the patterns of winners and swing states receiving the most money will hold true during the upcoming midterm elections. If so, it seems there will be no incentive for big PACs to reign in their campaign donations if they want to continue shaping election outcomes.
 
-
+**Footnotes:**
+GitHub- https://github.com/yifan6210/sds192-mp2
 
 
 
