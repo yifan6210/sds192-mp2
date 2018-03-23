@@ -53,6 +53,7 @@ ggplot(all, aes(x = nname, y = m))+
   
 ```
 
+Figure 1
 
 
 ```{r}
@@ -80,6 +81,8 @@ ggplot(state, aes(x = state.x, y = mean_d))+
   
 ```
 
+Figure 2
+
 
 ```{r}
 library(readxl)
@@ -92,9 +95,7 @@ states <- states %>%
 
 ```
 
-[2012 Electoral College Map](http://www.rasmussenreports.com/public_content/political_commentary/commentary_by_larry_j_sabato/plan_of_attack_obama_romney_the_electoral_college)
-Source: Rasmussen Reports
-=======
+
 
 ```{r}
 base <- ggplot(data = states) + 
@@ -107,7 +108,11 @@ base <- ggplot(data = states) +
 base
 ```
 
+Figure 3
 
+
+![2012 Electoral College Map](/Users/meghansuslovic/Documents/Spring 2018/SDS 192/mini_project2_FEC/2012_Swing_States.jpg) 
+Figure 4. Source: Rasmussen Reports (http://www.rasmussenreports.com/public_content/political_commentary/commentary_by_larry_j_sabato/plan_of_attack_obama_romney_the_electoral_college)
 
 
 
