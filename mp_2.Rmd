@@ -24,6 +24,7 @@ load("contributions.rda")
 ```
 
 ```{r}
+install.packages(c("maps", "mapdata"))
 library(tidyverse)
 library(maps)
 library(mapdata)
@@ -90,6 +91,13 @@ states <- states %>%
   left_join(state, by = c("Abreviation" = "state.x"))
 
 
+```
+
+[2012 Electoral College Map](http://www.rasmussenreports.com/public_content/political_commentary/commentary_by_larry_j_sabato/plan_of_attack_obama_romney_the_electoral_college)
+Source: Rasmussen Reports
+=======
+
+```{r}
 base <- ggplot(data = states) + 
   geom_polygon(aes(x = long, y = lat, group = group, fill = mean_d), color = "white")+
   scale_fill_gradient(low = "light green", high = "dark green", guide = FALSE)+
