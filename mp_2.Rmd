@@ -87,6 +87,8 @@ s_state <- base +
 
 ```
 
+[2012 Electoral College Map](http://www.rasmussenreports.com/public_content/political_commentary/commentary_by_larry_j_sabato/plan_of_attack_obama_romney_the_electoral_college)
+Source: Rasmussen Reports
 
 >>>>>>> 64ca9e62c4e7be0f66c473e3e7b07187b70cb496
 
